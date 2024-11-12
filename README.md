@@ -25,6 +25,8 @@ Setting Environment Variables for QR Code Customization
 - 2. Sharing a Volume for QR Code Output
 - 3. Setting Arguments for the URL from the Terminal
   using commands
+
+
 for windows powershell
 ```powershell 
     docker run -d --name qr-generator `
@@ -60,3 +62,6 @@ for windows powershell, you can use the following command:
 ```powershell
 docker run -v ${PWD}:/app qr_codes --url your_git_hub_profile_link_or_any_link
 ```
+
+finally the qr code will be generated in the directory qr_codes
+scan the qr code it redirects to the link
