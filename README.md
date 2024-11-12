@@ -16,7 +16,7 @@ This project is designed to generate QR codes based on provided URLs. It utilize
 Before running the application, you need to build the Docker image. Navigate to the project directory where the `Dockerfile` is located and run the following command:
 
 ```bash or windows
-docker build -t qr_codes .
+docker build -t my-qr-app .
 ```
 
 also run all the commands in the terminal  below for 
@@ -30,9 +30,9 @@ Setting Environment Variables for QR Code Customization
 Once the image is built successfully, you can run the application using the following command:
 
 ```bash
-docker run -v .:/app qr_codes --url http://www.nobody.com
+docker run -v .:/app my-qr-app --url http://www.nobody.com
 ```
 if your system os is windows, you can use the following command:
 ```bash
-docker run -v ${PWD}:/app qr_codes --url http://www.nobody.com
+docker run -v ${PWD}:/app my-qr-app --url http://www.nobody.com
 ```
