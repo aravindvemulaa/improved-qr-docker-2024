@@ -27,4 +27,21 @@ USER myuser
 # This allows additional command-line arguments to be passed to the script via the docker run command
 ENTRYPOINT ["python", "main.py"]
 # this sets a default argument, its also set in the program but this just illustrates how to use cmd and override it from the terminal
-CMD ["--url","http://github.com/kaw393939"]
+CMD ["--url","https://github.com/aravindvemulaa"]
+
+# FROM python:3.9-slim
+
+# WORKDIR /app
+
+# COPY requirements.txt .
+# RUN pip install --no-cache-dir -r requirements.txt
+
+# COPY main.py .
+
+# RUN mkdir -p qr_codes
+
+# ENV QR_CODE_DIR=qr_codes
+# ENV FILL_COLOR=red
+# ENV BACK_COLOR=white
+
+# ENTRYPOINT ["python", "main.py"]
