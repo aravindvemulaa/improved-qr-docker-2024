@@ -24,15 +24,39 @@ Setting Environment Variables for QR Code Customization
 - 1. Setting Environment Variables for QR Code Customization
 - 2. Sharing a Volume for QR Code Output
 - 3. Setting Arguments for the URL from the Terminal
+  using commands
+for windows powershell
+```powershell 
+    docker run -d --name qr-generator `
+  -e QR_DATA_URL="https://example.com" `
+  -e QR_CODE_DIR="qr_codes" `
+  -e QR_CODE_FILENAME="exampleQR.png" `
+  -e FILL_COLOR="blue" `
+  -e BACK_COLOR="yellow" `
+  -v "C:\host\path\for\qr_codes:/app/qr_codes" `
+  my-qr-app
+```
+for mac or linux
+```bash
+    docker run -d --name qr-generator \
+  -e QR_DATA_URL="https://example.com" \
+  -e QR_CODE_DIR="qr_codes" \
+  -e QR_CODE_FILENAME="exampleQR.png" \
+  -e FILL_COLOR="blue" \
+  -e BACK_COLOR="yellow" \
+  -v /host/path/for/qr_codes:/app/qr_codes \
+  my-qr-app
+
+```
 
 ### Running the Application
 
 Once the image is built successfully, you can run the application using the following command:
-
+ for mac and linux below command can be used
 ```bash
-docker run -v .:/app my-qr-app --url http://www.nobody.com
+docker run -v .:/app my-qr-app --url your_git_hub_profile_link_or_any_link_
 ```
-if your system os is windows, you can use the following command:
-```bash
-docker run -v ${PWD}:/app my-qr-app --url http://www.nobody.com
+for windows powershell, you can use the following command:
+```powershell
+docker run -v ${PWD}:/app qr_codes --url your_git_hub_profile_link_or_any_link
 ```
