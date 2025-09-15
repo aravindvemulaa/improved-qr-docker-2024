@@ -1,8 +1,24 @@
-# Docker and Python
+# Docker and Python QR Code Generator
 
 For this assignment you will be combining Docker with Python to create a program that generates a QR code PNG file that
 contains a URL. The QR code can be viewed with the camera on your phone to allow a user to click on it and send them to
 the target website. You must make your program generate a QR code that takes someone to your GitHub homepage i.e. https://github.com/kaw393939 <replace mine with yours>
+
+## New Feature: GitHub PR Support
+
+This application now supports GitHub CLI-style commands for generating QR codes for pull requests. You can use commands like:
+
+- `gh pr checkout 32` - Generates a QR code for PR #32
+- `pr 1` - Generates a QR code for PR #1
+- Regular URLs still work as before
+
+### Examples:
+
+```sh
+python main.py --url "gh pr checkout 32"
+python main.py --url "pr 1"
+python main.py --url "https://github.com/aravindvemulaa"
+```
 
 ## Setup
 1.  Goto Docker.com and Install docker - [https://www.docker.com/get-started/](here)
@@ -81,9 +97,17 @@ A comprehensive command that configures the QR code settings and mounts volumes 
 
 ## Setting the arg for the url from the terminal
 ```sh
-docker run -v .:/app qrcode --url htt/www.nobdoy.com
+docker run -v .:/app qrcode --url https://www.nobody.com
 ```
 This is how you would set the url for the qr code
+
+### GitHub PR Commands
+You can also use GitHub CLI-style commands:
+```sh
+docker run -v .:/app qrcode --url "gh pr checkout 32"
+docker run -v .:/app qrcode --url "pr 1"
+```
+These commands will generate QR codes for the specified pull requests.
 ### Basic Docker Commands Explained
 
 **Building an Image**
